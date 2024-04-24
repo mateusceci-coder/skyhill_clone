@@ -1,5 +1,5 @@
 export interface ProductsParams {
-    id: string
+    id: number
     image: string
     title: string
     oldPrice?: number
