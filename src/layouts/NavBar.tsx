@@ -25,7 +25,7 @@ export default function NavBar() {
             </span>
             {isHovered && (
               <ul className="flex flex-col gap-4 text-xl p-4 absolute bg-white top-full left-0">
-                <Link to="/grip">
+                <Link to="/grips">
                   <li className="hover:cursor-pointer hover:text-gray-500">
                     GRIPS
                   </li>

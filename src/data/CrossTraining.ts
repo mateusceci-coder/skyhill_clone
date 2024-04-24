@@ -1,9 +1,10 @@
 import { ProductsParams } from "../interfaces";
 
-
 export const grips: ProductsParams[] = [
   {
     id: 1,
+    type: "grips",
+    name: "tcb",
     image: "/grips/grip-tcb.webp",
     title: "Hand Grip Competition 2.0 Edição Especial TCB",
     price: 299.9,
@@ -21,6 +22,8 @@ export const grips: ProductsParams[] = [
   },
   {
     id: 2,
+    type: "grips",
+    name: "pink",
     image: "/grips/grip-pink.webp",
     title: "Hand Grip Competition Pink",
     price: 229.9,
@@ -38,6 +41,8 @@ export const grips: ProductsParams[] = [
   },
   {
     id: 3,
+    type: "grips",
+    name: "usa",
     image: "/grips/grip-usa.webp",
     title: "Hand Grip Competition 2.0 Edição Especial USA",
     price: 299.9,
@@ -55,6 +60,8 @@ export const grips: ProductsParams[] = [
   },
   {
     id: 4,
+    type: "grips",
+    name: "orange",
     image: "/grips/grip-orange.webp",
     title: "Legacy Grip Orange Edition",
     price: 289.9,
@@ -72,6 +79,8 @@ export const grips: ProductsParams[] = [
   },
   {
     id: 5,
+    type: "grips",
+    name: "black",
     image: "/grips/grip-black.webp",
     title: "Legacy Grip Black",
     price: 259.9,
@@ -89,6 +98,8 @@ export const grips: ProductsParams[] = [
   },
   {
     id: 6,
+    type: "grips",
+    name: "inspiration",
     image: "/grips/grip-inspiration.webp",
     title: "Hand Grip Inspiration 2.4",
     price: 359.9,
@@ -111,12 +122,14 @@ export const grips: ProductsParams[] = [
 export const joelheiras: ProductsParams[] = [
   {
     id: 7,
+    type: "joelheiras",
+    name: "rosa",
     image: "/joelheiras/joelheira-rosa.webp",
     title: " Joelheira Cross Training Defend 7mm-Rosa",
     price: 324.9,
     color: "Rosa",
     size: ["P", "M", "G", "GG"],
-    review: 5.0,
+    review: 5,
     numbersReview: 11,
     installment: "4x de R$81,23 sem juros",
     smImages: [
@@ -128,6 +141,8 @@ export const joelheiras: ProductsParams[] = [
   },
   {
     id: 8,
+    type: "joelheiras",
+    name: "amarelo",
     image: "/joelheiras/joelheira-amarelo.webp",
     title: " Joelheira Cross Training Defend 7mm-Amarela",
     price: 324.9,
@@ -145,6 +160,8 @@ export const joelheiras: ProductsParams[] = [
   },
   {
     id: 9,
+    type: "joelheiras",
+    name: "laranja",
     image: "/joelheiras/joelheira-laranja.webp",
     title: " Joelheira Cross Training Defend 7mm-Laranja",
     price: 324.9,
@@ -160,4 +177,44 @@ export const joelheiras: ProductsParams[] = [
     ],
     lgImage: "/joelheiras/joelheira-lg-laranja.webp",
   },
+  {
+    id: 10,
+    type: "joelheiras",
+    name: "preta",
+    image: "/joelheiras/joelheira-preta.webp",
+    title: " Joelheira Cross Training Defend 7mm-Preta",
+    price: 324.9,
+    color: "preto",
+    size: ["P", "M", "G", "GG"],
+    review: 4.5,
+    numbersReview: 10,
+    installment: "4x de R$81,23 sem juros",
+    smImages: [
+      "/joelheiras/joelheira1-sm-preta.webp",
+      "/joelheiras/joelheira2-sm-preta.webp",
+      "/joelheiras/joelheira3-sm-preta.webp",
+    ],
+    lgImage: "/joelheiras/joelheira-lg-preta.webp",
+  },
+];
+
+export const munhequeiras: ProductsParams[] = [
+  {
+    id: 11,
+    type: "munhequeiras",
+    name: "camuflada",
+    image: "/munhequeiras/munhequeira-camuflada.webp",
+    title: "Munhequeira Elástica Camuflada",
+    price: 99.90,
+    color: "Camuflada",
+    size: ["U"],
+    review: 10,
+    numbersReview: 10,
+    smImages: [
+        "/munhequeiras/munhequeira1-sm-camuflada.webp",
+        "/munhequeiras/munhequeira2-sm-camuflada.webp",
+        "/munhequeiras/munhequeira3-sm-camuflada.webp",
+    ],
+    lgImage: "/munhequeiras/munhequeira-lg-camuflada.webp",
+ },
 ];

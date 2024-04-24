@@ -1,10 +1,23 @@
 import { Tooltip } from "@mui/material";
+import { Link } from "react-router-dom";
 
+interface ProductContainerProps {
+  product: {
+    id: number;
+    type: string
+    title: string;
+    image: string;
+    price: number;
+    oldPrice?: number;
+    installment?: string;
+  }[];
+}
 
-export default function ProductContainer({product}) {
+export default function ProductContainer({ product }: ProductContainerProps) {
   return (
     <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {product.map((item) => (
+      {product.map((item) => (
+        <Link to={`/${item.type}/${item.id}`}>
           <li key={item.id} className="flex flex-col items-center gap-1 mb-4">
             <img
               src={item.image}
@@ -34,7 +47,8 @@ export default function ProductContainer({product}) {
               <p className="p-2 border">{item.installment}</p>
             )}
           </li>
-        ))}
-      </ul>
-  )
+        </Link>
+      ))}
+    </ul>
+  );
 }

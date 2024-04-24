@@ -3,7 +3,19 @@ import Filter from "../components/Filter";
 import FilterDrawer from "../components/FilterDrawer";
 import { Link } from "react-router-dom";
 
-export default function ProductsList({product}) {
+interface ProductsListProps {
+  product: {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    oldPrice?: number;
+    installment?: string;
+  }[];
+  name: string;
+}
+
+export default function ProductsList({product, name}: ProductsListProps) {
   return (
     <section className="my-10 flex flex-col max-w-5xl gap-4 mx-auto px-2">
       <div className="flex justify-between mb-8">
@@ -11,7 +23,7 @@ export default function ProductsList({product}) {
           <Link to="/">
             <span className="hover:cursor-pointer hover:underline">Início</span>
           </Link>
-          / <span className="font-bold">GRIPS</span>
+          / <span className="font-bold">{name}</span>
         </p>
         <div className="flex items-center">
           <p className="text-sm">Ordernar por:</p>
