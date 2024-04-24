@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner-img {
+  transition: transform 1s ease-in-out;
+  width: 100%;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-active {
+  transform: translateX(0);
+}
+
+.slide-exit {
+  transform: translateX(-100%);
+}
