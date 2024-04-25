@@ -7,12 +7,30 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useNavigate } from "react-router-dom";
+import {  useState } from "react";
 
-interface ProductItemProps {}
 
-export default function ProductItem({ product }) {
+interface ProductItemProps {
+  product: {
+    id: number;
+    title: string;
+    name: string;
+    image: string;
+    type: string;
+    price: number;
+    oldPrice: number;
+    installment: string;
+    size: string[];
+    banner: boolean;
+  };
+  setShoppingCart: any
+}
+
+export default function ProductItem({ product, setShoppingCart }: ProductItemProps) {
+  const [quantity, setQuantity] = useState(1)
+  const [pickedSize, setPickedSize] = useState(null)
+  const [noSize, setNoSize] = useState(false)
   const navigate = useNavigate();
-
   const navigateHome = () => {
     navigate("/");
   };
@@ -20,6 +38,39 @@ export default function ProductItem({ product }) {
   const navigateProducts = () => {
     navigate(-1);
   };
+
+  const addToShoppingCart = () => {
+    if (!pickedSize) {
+      setNoSize(true)
+      return
+    }
+    const newProduct = {
+      id: product.id,
+      name: product.title,
+      image: product.image,
+      price: product.price,
+      quantity: quantity,
+      size: pickedSize
+    }
+
+    setShoppingCart(prev => {
+      const existingProduct = prev.find(p => p.id === newProduct.id && p.size === newProduct.size);
+
+      if (existingProduct) {
+        return prev.map(p => {
+          if (p.id === newProduct.id && p.size === newProduct.size) {
+            return { ...p, quantity: p.quantity + newProduct.quantity };
+          }
+          return p;
+        });
+      } else {
+        return [...prev, newProduct];
+      }
+    });
+
+    setQuantity(1)
+    setNoSize(false)
+  }
 
   return (
     <section>
@@ -75,13 +126,13 @@ export default function ProductItem({ product }) {
               src={`/${product.type}/${product.type.slice(0, -1)}-lg-${
                 product.name
               }.webp`}
-              alt="${product.type}-lg"
+              alt={`${product.type}-lg`}
               className="hover:cursor-pointer"
             />
           </Grid>
           <Grid xs={4}>
             <div className="border-b">
-              <p className="text-xl">{}</p>
+              <p className="text-xl">{product.title}</p>
               <div className="flex items-center mb-4">
                 <Rating name="read-only" value={5} readOnly />
                 <span>(18)</span>
@@ -140,18 +191,20 @@ export default function ProductItem({ product }) {
             <div>
               <ul className="flex gap-2">
                 {product.size.map((size) => (
-                  <li className="border-2 px-2 hover:cursor-pointer">{size}</li>
+                  <li key={size} onClick={() => setPickedSize(size)}  className={`border-2 px-2 hover:cursor-pointer ${pickedSize === size ? 'border-gray-500' : 'border-gray-300'}`}
+                  >{size}</li>
                 ))}
               </ul>
             </div>
             <div className="my-6">
               <p>QUANTIDADE</p>
-              <input type="number" className="border w-20 p-1" min={1} />
+              <input type="number" className="border w-20 p-1" min={1} value={quantity} onChange={(e) => setQuantity(+e.target.value)} />
             </div>
 
-            <button className="bg-black text-white p-2 w-full hover:bg-slate-900">
+            <button onClick={addToShoppingCart} className="bg-black text-white p-2 w-full hover:bg-slate-900">
               COMPRAR
             </button>
+            {noSize && <p className="text-red-500">Selecione um tamanho</p>}
           </Grid>
         </Grid>
         <div className="flex justify-center gap-8 my-20">

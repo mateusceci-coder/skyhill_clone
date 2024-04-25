@@ -5,7 +5,7 @@ import ShoppingCart from "../components/ShoppingCart";
 import MenuDrawer from "../components/MenuDrawer";
 import { Link, NavLink } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar({shoppingCart, setShoppingCart}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -70,7 +70,7 @@ export default function NavBar() {
           <PersonOutlineOutlinedIcon className="hover:cursor-pointer" />
         </div>
         <MenuDrawer />
-        <ShoppingCart />
+        <ShoppingCart products={shoppingCart} setProducts={setShoppingCart} />
       </div>
     </nav>
   );

@@ -1,4 +1,4 @@
-import { ProductsParams } from "../interfaces";
+import { ProductsParams } from "../interfaces/productParams";
 
 export const grips: ProductsParams[] = [
   {
@@ -415,5 +415,53 @@ export const acessorios: ProductsParams[] = [
     type: "acessorios",
     name: "bag",
     image: "/acessorios/bag.webp",
+    title: "Grip Bag",
+    price: 29.90,
+    color: "Preto",
+    size: ["M", "G"],
+    review: 5.0,
+    numbersReview: 3,
+    smImages: [
+      "/acessorios/bag1-sm.webp",
+      "/acessorios/bag2-sm.webp",
+      "/acessorios/bag3-sm.webp",
+    ],
+    lgImage: "/acessorios/bag-lg-bag.webp",
+  },
+  {
+    id: 23,
+    type: "acessorios",
+    name: "strap",
+    image: "/acessorios/strap.webp",
+    title: "Strap com Neoprene",
+    price: 79.90,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/acessorios/strap1-sm.webp",
+      "/acessorios/strap2-sm.webp",
+      "/acessorios/strap3-sm.webp",
+    ],
+    lgImage: "/acessorios/strap-lg-strap.webp",
+  },
+  {
+    id: 24,
+    type: "acessorios",
+    name: "magnesio",
+    image: "/acessorios/magnesio.webp",
+    title: "Magnésio em Bloco",
+    price: 34.90,
+    color: "Branco",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/acessorios/magnesio1-sm.webp",
+      "/acessorios/magnesio2-sm.webp",
+      "/acessorios/magnesio3-sm.webp",
+    ],
+    lgImage: "/acessorios/magnesio-lg-magnesio.webp",
   }
 ]

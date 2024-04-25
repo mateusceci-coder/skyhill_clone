@@ -11,21 +11,25 @@ import {
   munhequeiras,
 } from "./data/CrossTraining";
 import ProductItem from "./pages/ProductItem";
+import { ShoppingCartParams } from "./interfaces/shoppingCart";
+import { useState } from "react";
 
 export default function App() {
+  const [shoppingCart, setShoppingCart] = useState<ShoppingCartParams[]>([]);
+
   return (
     <Router>
-      <NavBar />
+      <NavBar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/grips"
-          element={<ProductsList name={"GRIPS"} product={grips} />}
+          element={<ProductsList setShoppingCart={setShoppingCart} name={"GRIPS"} product={grips} />}
         />
         {grips.map((grip) => (
           <Route
             path={`/grips/${grip.id}`}
-            element={<ProductItem product={grip} />}
+            element={<ProductItem setShoppingCart={setShoppingCart} product={grip} />}
           />
         ))}
         <Route
@@ -35,7 +39,7 @@ export default function App() {
         {joelheiras.map((joelheira) => (
           <Route
             path={`/joelheiras/${joelheira.id}`}
-            element={<ProductItem product={joelheira} />}
+            element={<ProductItem setShoppingCart={setShoppingCart} product={joelheira} />}
           />
         ))}
         <Route
@@ -47,7 +51,7 @@ export default function App() {
         {munhequeiras.map((munhequeira) => (
           <Route
             path={`/munhequeiras/${munhequeira.id}`}
-            element={<ProductItem product={munhequeira} />}
+            element={<ProductItem setShoppingCart={setShoppingCart} product={munhequeira} />}
           />
         ))}
         <Route
@@ -57,7 +61,7 @@ export default function App() {
         {cordas.map((corda) => (
           <Route
             path={`/cordas/${corda.id}`}
-            element={<ProductItem product={corda} />}
+            element={<ProductItem setShoppingCart={setShoppingCart} product={corda} />}
           />
         ))}
         <Route
@@ -67,7 +71,7 @@ export default function App() {
         {cintos.map((cinto) => (
           <Route
             path={`/cintos/${cinto.id}`}
-            element={<ProductItem product={cinto} />}
+            element={<ProductItem setShoppingCart={setShoppingCart} product={cinto} />}
           />
         ))}
       </Routes>
