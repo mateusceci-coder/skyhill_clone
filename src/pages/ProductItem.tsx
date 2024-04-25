@@ -27,7 +27,7 @@ export default function ProductItem({ product }) {
         <img
           src={`"/grips/banner-grip-${product.name}.jpg"`}
           alt="banner"
-          className="w-full h-auto max-h-112 mb-10"
+          className="w-full h-auto max-h-112 mb-10 hover:cursor-pointer"
         />
       )}
       <div className="flex flex-col max-w-5xl mx-auto">
@@ -49,14 +49,35 @@ export default function ProductItem({ product }) {
         </p>
         <Grid container spacing={1}>
           <Grid xs={2}>
-            <div className="flex flex-col gap-4">
-              <img src={`/${product.type}/${(product.type).slice(0,-1)}1-sm-${product.name}.webp`} alt={`${product.type}-1`} />
-              <img src={`/${product.type}/${(product.type).slice(0,-1)}2-sm-${product.name}.webp`} alt={`${product.type}-2`} />
-              <img src={`/${product.type}/${(product.type).slice(0,-1)}3-sm-${product.name}.webp`} alt={`${product.type}-3`} />
+            <div className="flex flex-col gap-4 hover:cursor-pointer">
+              <img
+                src={`/${product.type}/${product.type.slice(0, -1)}1-sm-${
+                  product.name
+                }.webp`}
+                alt={`${product.type}-1`}
+              />
+              <img
+                src={`/${product.type}/${product.type.slice(0, -1)}2-sm-${
+                  product.name
+                }.webp`}
+                alt={`${product.type}-2`}
+              />
+              <img
+                src={`/${product.type}/${product.type.slice(0, -1)}3-sm-${
+                  product.name
+                }.webp`}
+                alt={`${product.type}-3`}
+              />
             </div>
           </Grid>
           <Grid xs={6}>
-            <img src={`/${product.type}/${(product.type).slice(0,-1)}-lg-${product.name}.webp`} alt="${product.type}-lg" />
+            <img
+              src={`/${product.type}/${product.type.slice(0, -1)}-lg-${
+                product.name
+              }.webp`}
+              alt="${product.type}-lg"
+              className="hover:cursor-pointer"
+            />
           </Grid>
           <Grid xs={4}>
             <div className="border-b">
@@ -67,13 +88,19 @@ export default function ProductItem({ product }) {
               </div>
               <p className="mb-2">
                 <span className="text-gray-500 line-through">
-                  {product.oldPrice && <span>R${(product.oldPrice).toFixed(2)}</span>}
+                  {product.oldPrice && (
+                    <span>R${product.oldPrice.toFixed(2)}</span>
+                  )}
                 </span>
-                <span className="text-2xl font-bold">R${(product.price).toFixed(2)}</span>
+                <span className="text-2xl font-bold">
+                  R${product.price.toFixed(2)}
+                </span>
               </p>
-              <p className="text-center p-1 border w-3/4">
-                {product.installment}
-              </p>
+              {product.installment && (
+                <p className="text-center p-1 border w-3/4">
+                  {product.installment}
+                </p>
+              )}
               <div className="flex gap-1 my-3">
                 <img
                   src="/cartoes/visa.png"

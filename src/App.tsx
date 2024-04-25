@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import NavBar from "./layouts/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductsList from "./pages/ProductsList";
-import { grips, joelheiras} from "./data/CrossTraining";
+import { cordas, grips, joelheiras, munhequeiras} from "./data/CrossTraining";
 import ProductItem from "./pages/ProductItem";
 
 
@@ -22,6 +22,14 @@ export default function App() {
         {joelheiras.map((joelheira) => (
           <Route path={`/joelheiras/${joelheira.id}`} element={<ProductItem product={joelheira} />}  />
         ) )}
+        <Route path="/munhequeiras" element={<ProductsList name={"MUNHEQUEIRAS"} product={munhequeiras} />} />
+        {munhequeiras.map(munhequeira => (
+        <Route path={`/munhequeiras/${munhequeira.id}`} element={<ProductItem product={munhequeira} />} />
+      ))}
+      <Route path="/cordas" element={<ProductsList name={"CORDAS"} product={cordas} />} />
+      {cordas.map(corda => (
+        <Route path={`/cordas/${corda.id}`} element={<ProductItem product={corda} />} />
+      ))}
       </Routes>
       <Footer />
     </Router>

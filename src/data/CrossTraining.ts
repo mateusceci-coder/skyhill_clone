@@ -208,7 +208,7 @@ export const munhequeiras: ProductsParams[] = [
     price: 99.90,
     color: "Camuflada",
     size: ["U"],
-    review: 10,
+    review: 5.0,
     numbersReview: 10,
     smImages: [
         "/munhequeiras/munhequeira1-sm-camuflada.webp",
@@ -217,4 +217,136 @@ export const munhequeiras: ProductsParams[] = [
     ],
     lgImage: "/munhequeiras/munhequeira-lg-camuflada.webp",
  },
+ {
+  id: 12,
+  type: "munhequeiras",
+  name: "rosa",
+  image: "/munhequeiras/munhequeira-rosa.webp",
+  title: "Munhequeira Elástica Quadriculada",
+  price: 99.90,
+  color: "Rosa",
+  size: ["U"],
+  review: 5.0,
+  numbersReview: 3,
+  smImages: [
+      "/munhequeiras/munhequeira1-sm-rosa.webp",
+      "/munhequeiras/munhequeira2-sm-rosa.webp",
+      "/munhequeiras/munhequeira3-sm-rosa.webp",
+  ],
+  lgImage: "/munhequeiras/munhequeira-lg-rosa.webp",
+ },
+ {
+  id: 13,
+  type: "munhequeiras",
+  name: "laranja",
+  image: "/munhequeiras/munhequeira-laranja.webp",
+  title: "Munhequeira Canelada (laranja)",
+  price: 44.90,
+  color: "Laranha",
+  size: ["U"],
+  review: 5.0,
+  numbersReview: 1,
+  smImages: [
+    "/munhequeiras/munhequeira1-sm-laranja.webp",
+    "/munhequeiras/munhequeira2-sm-laranja.webp",
+    "/munhequeiras/munhequeira3-sm-laranja.webp"
+  ],
+  lgImage: "/munhequeiras/munhequeira-lg-laranja.webp"
+ },
+ {
+  id: 14,
+  type: "munhequeiras",
+  name: "listrada",
+  image: "/munhequeiras/munhequeira-listrada.webp",
+  title: "Munhequeira Elástica Listrada",
+  price: 99.90,
+  color: "Listrada",
+  size: ["U"],
+  review: 5.0,
+  numbersReview: 5,
+  smImages: [
+    "/munhequeiras/munhequeira1-sm-listrada.webp",
+    "/munhequeiras/munhequeira2-sm-listrada.webp",
+    "/munhequeiras/munhequeira3-sm-listrada.webp"
+  ],
+  lgImage: "/munhequeiras/munhequeira-lg-listrada.webp"
+ },
+ {
+  id: 15,
+  type: "munhequeiras",
+  name: "preta",
+  image: "/munhequeiras/munhequeira-preta.webp",
+  title: "Munhequeira Canelada",
+  price: 99.90,
+  color: "preto",
+  size: ["U"],
+  review: 5.0,
+  numbersReview: 25,
+  smImages: [
+    "/munhequeiras/munhequeira1-sm-preta.webp",
+    "/munhequeiras/munhequeira2-sm-preta.webp",
+    "/munhequeiras/munhequeira3-sm-preta.webp"
+  ],
+  lgImage: "/munhequeiras/munhequeira-lg-listrada.webp"
+ }
 ];
+
+export const cordas: ProductsParams[] =[
+  {
+    id: 16,
+    type: "cordas",
+    name: "amarela",
+    image: "/cordas/corda-amarela.webp",
+    title: " Corda Segmentada Skyrope X",
+    price: 259.90,
+    oldPrice: 299.90,
+    color: "Amarela",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 9,
+    smImages: [
+      "/cordas/corda1-sm-amarela.webp",
+      "/cordas/corda2-sm-amarela.webp",
+      "/cordas/corda3-sm-amarela.webp",
+    ],
+    lgImage: "/cordas/corda-lg-amarela.webp",
+  },
+  {
+    id: 17,
+    type: "cordas",
+    name: "rosa",
+    image: "/cordas/corda-rosa.webp",
+    title: "Skyrope Speed Rope",
+    price: 399.90,
+    oldPrice: 499.90,
+    color: "Rosa",
+    size: ["U"],
+    installment: "6x de R$66,50 sem juros",
+    review: 4.5,
+    numbersReview: 11,
+    smImages: [
+      "/cordas/corda1-sm-rosa.webp",
+      "/cordas/corda2-sm-rosa.webp",
+      "/cordas/corda3-sm-rosa.webp",
+    ],
+    lgImage: "/cordas/corda-lg-rosa.webp",
+  },
+  {
+    id: 18,
+    type: "cordas",
+    name: "verde",
+    image: "/cordas/corda-verde.webp",
+    title: "Cabo para Corda Skyrope Speed",
+    price: 79.90,
+    color: "Verde",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/cordas/corda1-sm-verde.webp",
+      "/cordas/corda2-sm-verde.webp",
+      "/cordas/corda3-sm-verde.webp",
+    ],
+    lgImage: "/cordas/corda-lg-verde.webp",
+  }
+]

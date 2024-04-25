@@ -35,12 +35,16 @@ export default function NavBar() {
                     JOELHEIRAS
                   </li>
                 </Link>
-                <li className="hover:cursor-pointer hover:text-gray-500">
-                  MUNHEQUEIRAS
-                </li>
-                <li className="hover:cursor-pointer hover:text-gray-500">
-                  CORDAS
-                </li>
+                <Link to="/munhequeiras">
+                  <li className="hover:cursor-pointer hover:text-gray-500">
+                    MUNHEQUEIRAS
+                  </li>
+                </Link>
+                <Link to="/cordas">
+                  <li className="hover:cursor-pointer hover:text-gray-500">
+                    CORDAS
+                  </li>
+                </Link>
                 <li className="hover:cursor-pointer hover:text-gray-500">
                   CINTO P/ LPO
                 </li>
