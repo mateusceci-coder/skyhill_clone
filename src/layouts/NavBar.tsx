@@ -1,11 +1,17 @@
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 import MenuDrawer from "../components/MenuDrawer";
 import { Link, NavLink } from "react-router-dom";
+import { ShoppingCartParams } from "../interfaces/shoppingCart";
 
-export default function NavBar({shoppingCart, setShoppingCart}) {
+interface NavBarProps {
+  shoppingCart: ShoppingCartParams[];
+  setShoppingCart: Dispatch<SetStateAction<ShoppingCartParams[]>>;
+}
+
+export default function NavBar({shoppingCart, setShoppingCart}: NavBarProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

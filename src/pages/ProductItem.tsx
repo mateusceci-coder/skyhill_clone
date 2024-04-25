@@ -7,28 +7,19 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useNavigate } from "react-router-dom";
-import {  useState } from "react";
+import {  Dispatch, SetStateAction, useState } from "react";
+import { ShoppingCartParams } from "../interfaces/shoppingCart";
+import { ProductsParams } from "../interfaces/productParams";
 
 
 interface ProductItemProps {
-  product: {
-    id: number;
-    title: string;
-    name: string;
-    image: string;
-    type: string;
-    price: number;
-    oldPrice: number;
-    installment: string;
-    size: string[];
-    banner: boolean;
-  };
-  setShoppingCart: any
+  product: ProductsParams
+  setShoppingCart: Dispatch<SetStateAction<ShoppingCartParams[]>>
 }
 
 export default function ProductItem({ product, setShoppingCart }: ProductItemProps) {
   const [quantity, setQuantity] = useState(1)
-  const [pickedSize, setPickedSize] = useState(null)
+  const [pickedSize, setPickedSize] = useState<null | string>(null)
   const [noSize, setNoSize] = useState(false)
   const navigate = useNavigate();
   const navigateHome = () => {

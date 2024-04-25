@@ -24,7 +24,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/grips"
-          element={<ProductsList setShoppingCart={setShoppingCart} name={"GRIPS"} product={grips} />}
+          element={<ProductsList name={"GRIPS"} product={grips} />}
         />
         {grips.map((grip) => (
           <Route
