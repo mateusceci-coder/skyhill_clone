@@ -300,7 +300,7 @@ export const cordas: ProductsParams[] =[
     title: " Corda Segmentada Skyrope X",
     price: 259.90,
     oldPrice: 299.90,
-    color: "Amarela",
+    color: "Amarelo",
     size: ["U"],
     review: 5.0,
     numbersReview: 9,
@@ -348,5 +348,72 @@ export const cordas: ProductsParams[] =[
       "/cordas/corda3-sm-verde.webp",
     ],
     lgImage: "/cordas/corda-lg-verde.webp",
+  }
+]
+
+export const cintos: ProductsParams[] = [
+  {
+    id: 19,
+    type: "cintos",
+    name: "preto",
+    image: "/cintos/cinto-preto.webp",
+    title: "Cinto Lombar para LPO Defend",
+    price: 329.90,
+    color: "Preto",
+    size: ["P", "M", "G", "GG"],
+    review: 5.0,
+    numbersReview: 6,
+    smImages: [
+      "/cintos/cinto1-sm-preto.webp",
+      "/cintos/cinto2-sm-preto.webp",
+      "/cintos/cinto3-sm-preto.webp",
+    ],
+    lgImage: "/cintos/cinto-lg-preto.webp",
+  },
+  {
+    id: 20,
+    type: "cintos",
+    name: "rosa",
+    image: "/cintos/cinto-rosa.webp",
+    title: "Cinto Lombar para LPO Defend (Rosa)",
+    price: 329.90,
+    color: "Rosa",
+    size: ["P", "M", "G", "GG"],
+    review: 3.5,
+    numbersReview: 3,
+    smImages: [
+      "/cintos/cinto1-sm-rosa.webp",
+      "/cintos/cinto2-sm-rosa.webp",
+      "/cintos/cinto3-sm-rosa.webp",
+    ],
+    lgImage: "/cintos/cinto-lg-rosa.webp",
+  },
+  {
+    id: 21,
+    type: "cintos",
+    name: "branco",
+    image: "/cintos/cinto-branco.webp",
+    title: "Cinto Lombar para LPO Orbit",
+    price: 379.90,
+    oldPrice: 399.90,
+    color: "Branco",
+    size: ["P", "M", "G", "GG"],
+    review: 5.0,
+    numbersReview: 2,
+    smImages: [
+      "/cintos/cinto1-sm-branco.webp",
+      "/cintos/cinto2-sm-branco.webp",
+      "/cintos/cinto3-sm-branco.webp",
+    ],
+    lgImage: "/cintos/cinto-lg-branco.webp",
+  },
+]
+
+export const acessorios: ProductsParams[] = [
+  {
+    id: 22,
+    type: "acessorios",
+    name: "bag",
+    image: "/acessorios/bag.webp",
   }
 ]
