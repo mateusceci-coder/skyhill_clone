@@ -14,6 +14,7 @@ interface ProductContainerProps {
 }
 
 export default function ProductContainer({ product }: ProductContainerProps) {
+
   return (
     <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {product.map((item) => (

@@ -1,8 +1,11 @@
-import { Checkbox } from "@mui/material";
-import { colors, sizes } from "../utils/constants";
+import { Checkbox, colors } from "@mui/material";
 
+interface FilterParams {
+  colors: string[];
+  sizes: string[];
+}
 
-export default function Filter() {
+export default function Filter({colors, sizes}: FilterParams) {
   return (
     <div className="hidden md:flex flex-col">
         <h1 className="font-bold my-8 text-xl">Filtros</h1>
