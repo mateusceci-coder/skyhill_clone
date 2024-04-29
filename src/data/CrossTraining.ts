@@ -161,11 +161,11 @@ export const joelheiras: ProductsParams[] = [
   {
     id: 9,
     type: "joelheiras",
-    name: "Laranja",
+    name: "laranja",
     image: "/joelheiras/joelheira-laranja.webp",
     title: " Joelheira Cross Training Defend 7mm-Laranja",
     price: 324.9,
-    color: "laranja",
+    color: "Laranja",
     size: ["P", "M", "G", "GG"],
     review: 5.0,
     numbersReview: 2,

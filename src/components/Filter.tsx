@@ -5,7 +5,7 @@ interface FilterParams {
   sizes: string[];
 }
 
-export default function Filter({colors, sizes}: FilterParams) {
+export default function Filter({colors, sizes, setPickedSizes, setPickedColors}: FilterParams) {
   return (
     <div className="hidden md:flex flex-col">
         <h1 className="font-bold my-8 text-xl">Filtros</h1>

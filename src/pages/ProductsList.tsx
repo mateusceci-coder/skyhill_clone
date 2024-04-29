@@ -2,6 +2,7 @@ import ProductsGrid from "../layouts/ProductContainer";
 import Filter from "../components/Filter";
 import FilterDrawer from "../components/FilterDrawer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface ProductsListProps {
   product: {
@@ -17,12 +18,24 @@ interface ProductsListProps {
   name: string;
 }
 
-export default function ProductsList({product, name}: ProductsListProps) {
-  const allColors = product.map(item => item.color); // Mapeia para obter as cores
-  const colors = [...new Set(allColors)]; // Converte o array para um Set para remover duplicatas e volta para array
+export default function ProductsList({ product, name }: ProductsListProps) {
+  const [pickedSizes, setPickedSizes] = useState([]);
+  const [pickedColors, setPickedColors] = useState([]);
 
-  const allSizes = product.flatMap(item => item.size); // Combina todos os arrays de tamanhos
-  const sizes = [...new Set(allSizes)]; // Remove tamanhos duplicados
+  const isAnyColorPicked = pickedColors.length > 0;
+  const isAnySizePicked = pickedSizes.length > 0;
+
+  const filteredProducts = product.filter(
+    (item) =>
+      (!isAnySizePicked || pickedSizes.includes(item.size)) &&
+      (!isAnyColorPicked || pickedColors.includes(item.color))
+  );
+
+  const allColors = product.map((item) => item.color);
+  const colors = [...new Set(allColors)];
+
+  const allSizes = product.flatMap((item) => item.size);
+  const sizes = [...new Set(allSizes)];
 
   return (
     <section className="my-10 flex flex-col max-w-5xl gap-4 mx-auto px-2">
@@ -47,7 +60,12 @@ export default function ProductsList({product, name}: ProductsListProps) {
         <FilterDrawer />
       </div>
       <div className="flex gap-3">
-        <Filter colors={colors} sizes={sizes} />
+        <Filter
+          colors={colors}
+          sizes={sizes}
+          setPickedSizes={setPickedSizes}
+          setPickedColors={setPickedColors}
+        />
         <ProductsGrid product={product} />
       </div>
     </section>
