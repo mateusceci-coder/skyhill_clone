@@ -7,7 +7,7 @@ export interface ProductsParams {
     oldPrice?: number
     price: number
     installment?: string
-    color?: string
+    color: string
     size: string[]
     review: number
     numbersReview: number

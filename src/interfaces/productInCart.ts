@@ -3,7 +3,7 @@ export interface ProductInCart {
   name: string
   image: string
   price: number
-  color?: string
+  color: string
   size: string
   quantity: number
 }

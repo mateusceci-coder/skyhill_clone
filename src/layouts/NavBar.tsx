@@ -1,17 +1,12 @@
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 import MenuDrawer from "../components/MenuDrawer";
 import { Link, NavLink } from "react-router-dom";
-import { ShoppingCartParams } from "../interfaces/shoppingCart";
 
-interface NavBarProps {
-  shoppingCart: ShoppingCartParams[];
-  setShoppingCart: Dispatch<SetStateAction<ShoppingCartParams[]>>;
-}
 
-export default function NavBar({shoppingCart, setShoppingCart}: NavBarProps) {
+export default function NavBar() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -76,7 +71,7 @@ export default function NavBar({shoppingCart, setShoppingCart}: NavBarProps) {
           <PersonOutlineOutlinedIcon className="hover:cursor-pointer" />
         </div>
         <MenuDrawer />
-        <ShoppingCart products={shoppingCart} setProducts={setShoppingCart} />
+        <ShoppingCart />
       </div>
     </nav>
   );

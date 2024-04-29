@@ -3,18 +3,10 @@ import Filter from "../components/Filter";
 import FilterDrawer from "../components/FilterDrawer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { ProductsParams } from "../interfaces/productParams";
 
 interface ProductsListProps {
-  product: {
-    id: number;
-    title: string;
-    image: string;
-    color: string;
-    price: number;
-    size: string[];
-    oldPrice?: number;
-    installment?: string;
-  }[];
+  product: ProductsParams[]
   name: string;
 }
 

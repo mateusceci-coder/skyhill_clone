@@ -2,53 +2,35 @@ import { Badge, Drawer } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { Dispatch, SetStateAction, useState } from "react";
-import { ProductInCart } from "../interfaces/productInCart";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
+import { RootState } from "@reduxjs/toolkit/query";
 
-interface ShoppingCartProps {
-  products: ProductInCart[];
-  setProducts: Dispatch<SetStateAction<ProductInCart[]>>;
-}
 
-export default function ShoppingCart({
-  products,
-  setProducts,
-}: ShoppingCartProps) {
+export default function ShoppingCart() {
   const [openCart, setOpenCart] = useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpenCart(newOpen);
   };
+  const dispatch = useDispatch();
+  const products = useSelector((state: any) => state.cart.items);
 
-  const handleDecrease = (id: number) => {
-    setProducts((products) =>
-      products.map((product) => {
-        if (product.id === id) {
-          return { ...product, quantity: Math.max(product.quantity - 1, 0) };
-        }
-        return product;
-      })
-    );
+  const handleDecrease = (id: number, size: string) => {
+    dispatch(decreaseQuantity({id, size}));
   };
 
-  const handleIncrease = (id: number) => {
-    setProducts((product) =>
-      product.map((product) =>
-        product.id === id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
-      )
-    );
+  const handleIncrease = (id: number, size: string ) => {
+    dispatch(increaseQuantity({id, size}));
   };
 
-  const handleDeleteProduct = () => {
-    setProducts((products) =>
-      products.filter((product) => product.id !== product.id)
-    );
+  const handleDeleteProduct = (id: number, size: string) => {
+    dispatch(removeFromCart({id, size}));
   };
 
   return (
     <div>
-      <Badge badgeContent={1} onClick={toggleDrawer(true)} color="primary">
+      <Badge badgeContent={products.length} onClick={toggleDrawer(true)} color="primary">
         <ShoppingCartOutlinedIcon className="hover:cursor-pointer" />
       </Badge>
       <Drawer open={openCart} onClose={toggleDrawer(false)} anchor="right">
@@ -72,11 +54,11 @@ export default function ShoppingCart({
                     <img src={product.image} alt={product.name} width={80} />
                     <div>
                       <div className="flex flex-col gap-2">
-                        <p>{product.name}</p>
+                        <p>{product.name} ({product.size})</p>
                         <p>R$ {product.price.toFixed(2)}</p>
                         <div className="flex">
                           <span
-                            onClick={() => handleDecrease(product.id)}
+                            onClick={() => handleDecrease(product.id, product.size)}
                             className="border py-1 px-2 text-xl border-black font-bold hover:cursor-pointer hover:text-gray-500"
                           >
                             -
@@ -87,7 +69,7 @@ export default function ShoppingCart({
                             className="border p-2 border-black w-14"
                           />
                           <span
-                            onClick={() => handleIncrease(product.id)}
+                            onClick={() => handleIncrease(product.id, product.size)}
                             className="border py-1 px-2 text-xl border-black font-bold hover:cursor-pointer hover:text-gray-500"
                           >
                             +
@@ -99,7 +81,7 @@ export default function ShoppingCart({
                       <span>
                         R${(product.price * product.quantity).toFixed(2)}
                       </span>
-                      <div onClick={handleDeleteProduct}>
+                      <div onClick={() => handleDeleteProduct(product.id, product.size)}>
                         <DeleteOutlineOutlinedIcon className="hover:cursor-pointer" />
                       </div>
                     </div>

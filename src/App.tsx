@@ -11,15 +11,13 @@ import {
   munhequeiras,
 } from "./data/CrossTraining";
 import ProductItem from "./pages/ProductItem";
-import { ShoppingCartParams } from "./interfaces/shoppingCart";
-import { useState } from "react";
+
 
 export default function App() {
-  const [shoppingCart, setShoppingCart] = useState<ShoppingCartParams[]>([]);
-
+  
   return (
     <Router>
-      <NavBar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -29,7 +27,7 @@ export default function App() {
         {grips.map((grip) => (
           <Route
             path={`/grips/${grip.id}`}
-            element={<ProductItem setShoppingCart={setShoppingCart} product={grip} />}
+            element={<ProductItem product={grip} />}
           />
         ))}
         <Route
@@ -39,7 +37,7 @@ export default function App() {
         {joelheiras.map((joelheira) => (
           <Route
             path={`/joelheiras/${joelheira.id}`}
-            element={<ProductItem setShoppingCart={setShoppingCart} product={joelheira} />}
+            element={<ProductItem product={joelheira} />}
           />
         ))}
         <Route
@@ -51,7 +49,7 @@ export default function App() {
         {munhequeiras.map((munhequeira) => (
           <Route
             path={`/munhequeiras/${munhequeira.id}`}
-            element={<ProductItem setShoppingCart={setShoppingCart} product={munhequeira} />}
+            element={<ProductItem product={munhequeira} />}
           />
         ))}
         <Route
@@ -61,7 +59,7 @@ export default function App() {
         {cordas.map((corda) => (
           <Route
             path={`/cordas/${corda.id}`}
-            element={<ProductItem setShoppingCart={setShoppingCart} product={corda} />}
+            element={<ProductItem product={corda} />}
           />
         ))}
         <Route
@@ -71,7 +69,7 @@ export default function App() {
         {cintos.map((cinto) => (
           <Route
             path={`/cintos/${cinto.id}`}
-            element={<ProductItem setShoppingCart={setShoppingCart} product={cinto} />}
+            element={<ProductItem product={cinto} />}
           />
         ))}
       </Routes>

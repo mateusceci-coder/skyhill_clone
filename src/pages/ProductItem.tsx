@@ -7,17 +7,16 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useNavigate } from "react-router-dom";
-import {  Dispatch, SetStateAction, useState } from "react";
-import { ShoppingCartParams } from "../interfaces/shoppingCart";
+import {  useState } from "react";
 import { ProductsParams } from "../interfaces/productParams";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 interface ProductItemProps {
   product: ProductsParams
-  setShoppingCart: Dispatch<SetStateAction<ShoppingCartParams[]>>
 }
 
-export default function ProductItem({ product, setShoppingCart }: ProductItemProps) {
+export default function ProductItem({ product }: ProductItemProps) {
   const [quantity, setQuantity] = useState(1)
   const [pickedSize, setPickedSize] = useState<null | string>(null)
   const [noSize, setNoSize] = useState(false)
@@ -25,6 +24,7 @@ export default function ProductItem({ product, setShoppingCart }: ProductItemPro
   const navigateHome = () => {
     navigate("/");
   };
+  const dispatch = useDispatch()
 
   const navigateProducts = () => {
     navigate(-1);
@@ -40,24 +40,12 @@ export default function ProductItem({ product, setShoppingCart }: ProductItemPro
       name: product.title,
       image: product.image,
       price: product.price,
+      color: product.color,
       quantity: quantity,
       size: pickedSize
     }
 
-    setShoppingCart(prev => {
-      const existingProduct = prev.find(p => p.id === newProduct.id && p.size === newProduct.size);
-
-      if (existingProduct) {
-        return prev.map(p => {
-          if (p.id === newProduct.id && p.size === newProduct.size) {
-            return { ...p, quantity: p.quantity + newProduct.quantity };
-          }
-          return p;
-        });
-      } else {
-        return [...prev, newProduct];
-      }
-    });
+    dispatch(addToCart(newProduct))
 
     setQuantity(1)
     setNoSize(false)
