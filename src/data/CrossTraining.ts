@@ -465,3 +465,60 @@ export const acessorios: ProductsParams[] = [
     lgImage: "/acessorios/magnesio-lg-magnesio.webp",
   }
 ]
+
+export const running: ProductsParams[] = [
+  {
+    id: 25,
+    type: "running",
+    name: "porta-objetos",
+    image: "/running/porta-objetos.webp",
+    title: "Porta Objetos",
+    price: 129.90,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/porta-objetos1-sm.webp",
+      "/running/porta-objetos2-sm.webp",
+      "/running/porta-objetos3-sm.webp",
+    ],
+    lgImage: "/running/porta-objetos-lg-porta-objetos.webp",
+  },
+  {
+    id: 26,
+    type: "running",
+    name: "manguito",
+    image: "/running/manguito.webp",
+    title: "Manguito",
+    price: 89.90,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/manguito1-sm.webp",
+      "/running/manguito2-sm.webp",
+      "/running/manguito3-sm.webp",
+    ],
+    lgImage: "/running/manguito-lg-manguito.webp",
+  },
+  {
+    id: 27,
+    type: "running",
+    name: "patch",
+    image: "/running/patch.webp",
+    title: "Patch Skyhill",
+    price: 25.00,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/patch1-sm.webp",
+      "/running/patch2-sm.webp",
+      "/running/patch3-sm.webp",
+    ],
+    lgImage: "/running/patch-lg-patch.webp",
+  }
+]

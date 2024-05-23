@@ -55,7 +55,9 @@ export default function NavBar() {
               </ul>
             )}
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-500">RUNNING</li>
+          <Link to="/running">
+            <li className="hover:cursor-pointer hover:text-gray-500">RUNNING</li>
+          </Link>
           <li className="hover:cursor-pointer hover:text-gray-500">KITS</li>
           <li className="hover:cursor-pointer hover:text-gray-500">
             SKYHILL CARE

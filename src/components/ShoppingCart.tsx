@@ -5,7 +5,6 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
-import { RootState } from "@reduxjs/toolkit/query";
 
 
 export default function ShoppingCart() {
@@ -27,6 +26,8 @@ export default function ShoppingCart() {
   const handleDeleteProduct = (id: number, size: string) => {
     dispatch(removeFromCart({id, size}));
   };
+
+  console.log(products)
 
   return (
     <div>

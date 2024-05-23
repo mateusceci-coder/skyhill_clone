@@ -9,12 +9,13 @@ import {
   grips,
   joelheiras,
   munhequeiras,
+  running,
 } from "./data/CrossTraining";
 import ProductItem from "./pages/ProductItem";
 
 
 export default function App() {
-  
+
   return (
     <Router>
       <NavBar />
@@ -70,6 +71,16 @@ export default function App() {
           <Route
             path={`/cintos/${cinto.id}`}
             element={<ProductItem product={cinto} />}
+          />
+        ))}
+        <Route
+          path="/running"
+          element={<ProductsList name={"RUNNING"} product={running} />}
+        />
+        {running.map((run) => (
+          <Route
+            path={`/running/${run.id}`}
+            element={<ProductItem product={run} />}
           />
         ))}
       </Routes>

@@ -48,6 +48,7 @@ export default function MenuDrawer() {
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul className="flex flex-col">
+                      
                       <li className="bg-gray-300 p-3 border-b">GRIPS</li>
                       <li className="bg-gray-300 p-3 border-b">JOELHEIRAS</li>
                       <li className="bg-gray-300 p-3 border-b">CORDAS</li>
