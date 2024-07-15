@@ -1,6 +1,7 @@
 import { Tooltip } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const settings = {
@@ -12,6 +13,19 @@ export default function Home() {
     autoplay: true,
     autoplaySpeed: 4000,
   };
+
+  const linksSmall = [
+    {href: "/acessorios", src: "/home/fitness-home.webp", alt: "fitness", title: "Fitness"},
+    {href: "/acessorios", src: "/home/cross-training-home.webp", alt: "cross-training", title: "Cross Training"},
+    {href: "/running", src: "/home/running-home.webp", alt: "running", title: "Running"},
+  ]
+
+  const linksBig = [
+    {href: "/grips", src: "/home/hand-grip-home.jpg", alt: "hand-grip", title: "Hand Grips", subtitle: "Os mais amados do país"},
+    {href: "/munhequeiras", src: "/home/munhequeiras-home.webp", alt: "munhequeiras", title: "Munhequeiras", subtitle: "Suporte para estender seus limites"},
+    {href: "/kits", src: "/home/kits-home.webp", alt: "kits", title: "Kits", subtitle: "Produtos combinados com até 15% OFF"},
+    {href: "/kits", src: "/home/acessorios-home.webp", alt: "acessorios", title: "Kits", subtitle: "Camisetas, garrafas, bags e muito mais"},
+  ]
 
   return (
     <main>
@@ -112,88 +126,39 @@ export default function Home() {
       </section>
       <section className="mb-8">
         <ul className="mx-auto grid md:grid-cols-3 gap-6 max-w-5xl mb-6">
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/fitness-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl">Fitness</p>
-            </div>
-          </li>
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/cross-training-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl">Cross Training</p>
-            </div>
-          </li>
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/running-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl">Running</p>
-            </div>
-          </li>
+          {linksSmall.map((link) => (
+            <Link to={link.href} key={link.href}>
+              <li className="relative hover:cursor-pointer overflow-hidden group">
+                <img
+                  src={link.src}
+                  alt={link.alt}
+                  className="transition-all duration-500 ease-in-out transform group-hover:scale-105 w-full"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
+                  <p className="text-white font-bold text-3xl">{link.title}</p>
+                </div>
+              </li>
+            </Link>
+          ))}
+
         </ul>
         <ul className="mx-auto grid md:grid-cols-2 gap-6 max-w-5xl mb-6">
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/hand-grip-home.jpg"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 max-h-120 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl mb-4">Hand Grips</p>
-              <p className="text-white text-lg">Os mais amados do país</p>
-            </div>
-          </li>
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/munhequeiras-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 max-h-120 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl mb-4">Munhequeiras</p>
-              <p className="text-white text-lg">
-                Suporte para estender seus limites
-              </p>
-            </div>
-          </li>
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/kits-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 max-h-120 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl mb-4">Kits</p>
-              <p className="text-white text-lg">
-                Produtos combinados com até 15% OFF
-              </p>
-            </div>
-          </li>
-          <li className="relative hover:cursor-pointer overflow-hidden group">
-            <img
-              src="/home/acessorios-home.webp"
-              alt="running home"
-              className="transition-all duration-500 ease-in-out transform group-hover:scale-105 max-h-120 w-full"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-              <p className="text-white font-bold text-3xl mb-4">Kits</p>
-              <p className="text-white text-lg">
-                Camisetas, garrafas, bags e muito mais
-              </p>
-            </div>
-          </li>
+          {linksBig.map((link) => (
+            <Link to={link.href} key={link.href}>
+              <li className="relative hover:cursor-pointer overflow-hidden group">
+                <img
+                  src={link.src}
+                  alt={link.alt}
+                  className="transition-all duration-500 ease-in-out transform group-hover:scale-105 max-h-120 w-full"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
+                  <p className="text-white font-bold text-3xl mb-4">{link.title}</p>
+                  <p className="text-white text-lg">{link.subtitle}</p>
+                </div>
+              </li>
+            </Link>
+          ))}
+
         </ul>
       </section>
       <section className="flex justify-center items-center gap-2">
