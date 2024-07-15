@@ -7,24 +7,24 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useNavigate } from "react-router-dom";
-import {  useState } from "react";
+import { useState } from "react";
 import { ProductsParams } from "../interfaces/productParams";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 
 interface ProductItemProps {
-  product: ProductsParams
+  product: ProductsParams;
 }
 
 export default function ProductItem({ product }: ProductItemProps) {
-  const [quantity, setQuantity] = useState(1)
-  const [pickedSize, setPickedSize] = useState<null | string>(null)
-  const [noSize, setNoSize] = useState(false)
+  const [quantity, setQuantity] = useState(1);
+  const [pickedSize, setPickedSize] = useState<null | string>(product.size[0]);
+  const [noSize, setNoSize] = useState(false);
   const navigate = useNavigate();
   const navigateHome = () => {
     navigate("/");
   };
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const navigateProducts = () => {
     navigate(-1);
@@ -32,8 +32,8 @@ export default function ProductItem({ product }: ProductItemProps) {
 
   const addToShoppingCart = () => {
     if (!pickedSize) {
-      setNoSize(true)
-      return
+      setNoSize(true);
+      return;
     }
     const newProduct = {
       id: product.id,
@@ -42,14 +42,14 @@ export default function ProductItem({ product }: ProductItemProps) {
       price: product.price,
       color: product.color,
       quantity: quantity,
-      size: pickedSize
-    }
+      size: pickedSize,
+    };
 
-    dispatch(addToCart(newProduct))
+    dispatch(addToCart(newProduct));
 
-    setQuantity(1)
-    setNoSize(false)
-  }
+    setQuantity(1);
+    setNoSize(false);
+  };
 
   return (
     <section>
@@ -78,7 +78,7 @@ export default function ProductItem({ product }: ProductItemProps) {
           /<span className="font-bold">{product.title}</span>
         </p>
         <Grid container spacing={1}>
-          <Grid xs={2}>
+          <Grid xs={0} md={2}>
             <div className="flex flex-col gap-4 hover:cursor-pointer">
               <img
                 src={`/${product.type}/${product.type.slice(0, -1)}1-sm-${
@@ -100,7 +100,11 @@ export default function ProductItem({ product }: ProductItemProps) {
               />
             </div>
           </Grid>
-          <Grid xs={6}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <img
               src={`/${product.type}/${product.type.slice(0, -1)}-lg-${
                 product.name
@@ -109,7 +113,7 @@ export default function ProductItem({ product }: ProductItemProps) {
               className="hover:cursor-pointer"
             />
           </Grid>
-          <Grid xs={4}>
+          <Grid xs={12} md={4} sx={{ p: 2 }}>
             <div className="border-b">
               <p className="text-xl">{product.title}</p>
               <div className="flex items-center mb-4">
@@ -157,7 +161,7 @@ export default function ProductItem({ product }: ProductItemProps) {
             <div className="flex flex-col my-4">
               <div className="flex justify-between">
                 <p>
-                  TAMANHO: <b>P</b>
+                  TAMANHO: <b>{pickedSize}</b>
                 </p>
                 <div className="flex items-center gap-1">
                   <StraightenOutlinedIcon />
@@ -170,17 +174,35 @@ export default function ProductItem({ product }: ProductItemProps) {
             <div>
               <ul className="flex gap-2">
                 {product.size.map((size) => (
-                  <li key={size} onClick={() => setPickedSize(size)}  className={`border-2 px-2 hover:cursor-pointer ${pickedSize === size ? 'border-gray-500' : 'border-gray-300'}`}
-                  >{size}</li>
+                  <li
+                    key={size}
+                    onClick={() => setPickedSize(size)}
+                    className={`border-2 px-2 hover:cursor-pointer ${
+                      pickedSize === size
+                        ? "border-gray-500"
+                        : "border-gray-300"
+                    }`}
+                  >
+                    {size}
+                  </li>
                 ))}
               </ul>
             </div>
             <div className="my-6">
               <p>QUANTIDADE</p>
-              <input type="number" className="border w-20 p-1" min={1} value={quantity} onChange={(e) => setQuantity(+e.target.value)} />
+              <input
+                type="number"
+                className="border w-20 p-1"
+                min={1}
+                value={quantity}
+                onChange={(e) => setQuantity(+e.target.value)}
+              />
             </div>
 
-            <button onClick={addToShoppingCart} className="bg-black text-white p-2 w-full hover:bg-slate-900">
+            <button
+              onClick={addToShoppingCart}
+              className="bg-black text-white p-2 w-full hover:bg-slate-900"
+            >
               COMPRAR
             </button>
             {noSize && <p className="text-red-500">Selecione um tamanho</p>}
@@ -192,7 +214,7 @@ export default function ProductItem({ product }: ProductItemProps) {
           <PinterestIcon fontSize="large" className="hover:cursor-pointer" />
         </div>
         <Grid container>
-          <Grid xs={8}>
+          <Grid xs={8} sx={{ mx: "auto" }}>
             <h2 className="font-bold">Quem usa Skyhill</h2>
             <p>
               Usado pelos melhores atletas e celebridades do mundo Fitness, o
