@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductsList from "./pages/ProductsList";
 import {
   acessorios,
+  care,
   cintos,
   cordas,
   grips,
   joelheiras,
+  kits,
   munhequeiras,
   running,
 } from "./data/CrossTraining";
@@ -92,6 +94,26 @@ export default function App() {
           <Route
             path={`/running/${run.id}`}
             element={<ProductItem product={run} />}
+          />
+        ))}
+        <Route
+          path="/kits"
+          element={<ProductsList name={"KITS"} product={kits} />}
+        />
+        {kits.map((kit) => (
+          <Route
+            path={`/kits/${kit.id}`}
+            element={<ProductItem product={kit} />}
+          />
+        ))}
+        <Route
+          path="/care"
+          element={<ProductsList name={"SKYHILL CARE"} product={care} />}
+        />
+        {care.map((car) => (
+          <Route
+            path={`/care/${car.id}`}
+            element={<ProductItem product={car} />}
           />
         ))}
       </Routes>

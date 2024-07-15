@@ -564,7 +564,7 @@ export const kits: ProductsParams[] = [
     id: 30,
     type: "kits",
     name: "legacy",
-    image: "/kits/patch.webp",
+    image: "/kits/legacy.webp",
     title: "Kit Legacy Black",
     price: 639.9,
     color: "Preto",
