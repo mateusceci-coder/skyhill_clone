@@ -63,10 +63,16 @@ export default function NavBar() {
               RUNNING
             </li>
           </Link>
-          <li className="hover:cursor-pointer hover:text-gray-500">KITS</li>
-          <li className="hover:cursor-pointer hover:text-gray-500">
-            SKYHILL CARE
-          </li>
+          <Link to="/kits">
+            <li className="hover:cursor-pointer hover:text-gray-500">
+              KITS
+            </li>
+          </Link>
+          <Link to="/care">
+            <li className="hover:cursor-pointer hover:text-gray-500">
+              SKYHILL CARE
+            </li>
+          </Link>
         </ul>
       </div>
       <div className="flex gap-1">
