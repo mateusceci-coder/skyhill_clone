@@ -5,7 +5,6 @@ import ShoppingCart from "../components/ShoppingCart";
 import MenuDrawer from "../components/MenuDrawer";
 import { Link, NavLink } from "react-router-dom";
 
-
 export default function NavBar() {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -46,17 +45,23 @@ export default function NavBar() {
                     CORDAS
                   </li>
                 </Link>
-                <li className="hover:cursor-pointer hover:text-gray-500">
-                  CINTO P/ LPO
-                </li>
-                <li className="hover:cursor-pointer hover:text-gray-500">
-                  + ACESSÓRIOS
-                </li>
+                <Link to="/cintos">
+                  <li className="hover:cursor-pointer hover:text-gray-500">
+                    CINTOS
+                  </li>
+                </Link>
+                <Link to="/acessorios">
+                  <li className="hover:cursor-pointer hover:text-gray-500">
+                    + ACESSÓRIOS
+                  </li>
+                </Link>
               </ul>
             )}
           </li>
           <Link to="/running">
-            <li className="hover:cursor-pointer hover:text-gray-500">RUNNING</li>
+            <li className="hover:cursor-pointer hover:text-gray-500">
+              RUNNING
+            </li>
           </Link>
           <li className="hover:cursor-pointer hover:text-gray-500">KITS</li>
           <li className="hover:cursor-pointer hover:text-gray-500">

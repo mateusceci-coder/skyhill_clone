@@ -422,11 +422,11 @@ export const acessorios: ProductsParams[] = [
     review: 5.0,
     numbersReview: 3,
     smImages: [
-      "/acessorios/bag1-sm.webp",
-      "/acessorios/bag2-sm.webp",
-      "/acessorios/bag3-sm.webp",
+      "/acessorios/acessorio1-sm-magnesio.webp",
+      "/acessorios/acessorio2-sm-magnesio.webp",
+      "/acessorios/acessorio3-sm-magnesio.webp",
     ],
-    lgImage: "/acessorios/bag-lg-bag.webp",
+    lgImage: "/acessorios/acessorio-lg-bag.webp",
   },
   {
     id: 23,
@@ -440,11 +440,11 @@ export const acessorios: ProductsParams[] = [
     review: 5.0,
     numbersReview: 1,
     smImages: [
-      "/acessorios/strap1-sm.webp",
-      "/acessorios/strap2-sm.webp",
-      "/acessorios/strap3-sm.webp",
+      "/acessorios/acessorio1-sm-strap.webp",
+      "/acessorios/acessorio2-sm-strap.webp",
+      "/acessorios/acessorio3-sm-strap.webp",
     ],
-    lgImage: "/acessorios/strap-lg-strap.webp",
+    lgImage: "/acessorios/acessorio-lg-strap.webp",
   },
   {
     id: 24,
@@ -458,9 +458,9 @@ export const acessorios: ProductsParams[] = [
     review: 5.0,
     numbersReview: 1,
     smImages: [
-      "/acessorios/magnesio1-sm.webp",
-      "/acessorios/magnesio2-sm.webp",
-      "/acessorios/magnesio3-sm.webp",
+      "/acessorios/acessorio1-sm-magnesio.webp",
+      "/acessorios/acessorio2-sm-magnesio.webp",
+      "/acessorios/acessorio3-sm-magnesio.webp",
     ],
     lgImage: "/acessorios/magnesio-lg-magnesio.webp",
   }
@@ -479,11 +479,11 @@ export const running: ProductsParams[] = [
     review: 5.0,
     numbersReview: 1,
     smImages: [
-      "/running/porta-objetos1-sm.webp",
-      "/running/porta-objetos2-sm.webp",
-      "/running/porta-objetos3-sm.webp",
+      "/running/runnin1-sm-porta-objetos.webp",
+      "/running/runnin2-sm-porta-objetos.webp",
+      "/running/runnin3-sm-porta-objetos.webp",
     ],
-    lgImage: "/running/porta-objetos-lg-porta-objetos.webp",
+    lgImage: "/running/runnin-lg-porta-objetos.webp",
   },
   {
     id: 26,
@@ -497,11 +497,11 @@ export const running: ProductsParams[] = [
     review: 5.0,
     numbersReview: 1,
     smImages: [
-      "/running/manguito1-sm.webp",
-      "/running/manguito2-sm.webp",
-      "/running/manguito3-sm.webp",
+      "/running/runnin1-sm-manguito.webp",
+      "/running/runnin2-sm-manguito.webp",
+      "/running/runnin3-sm-manguito.webp",
     ],
-    lgImage: "/running/manguito-lg-manguito.webp",
+    lgImage: "/running/runnin-lg-manguito.webp",
   },
   {
     id: 27,
@@ -515,10 +515,67 @@ export const running: ProductsParams[] = [
     review: 5.0,
     numbersReview: 1,
     smImages: [
-      "/running/patch1-sm.webp",
-      "/running/patch2-sm.webp",
-      "/running/patch3-sm.webp",
+      "/running/runnin1-sm-patch.webp",
+      "/running/runnin2-sm-patch.webp",
+      "/running/runnin3-sm-patch.webp",
     ],
-    lgImage: "/running/patch-lg-patch.webp",
+    lgImage: "/running/runnin-lg-patch.webp",
+  }
+]
+
+export const kits: ProductsParams[] = [
+  {
+    id: 28,
+    type: "kits",
+    name: "kit-munhequeiras",
+    image: "/kits/munhequeiras.webp",
+    title: "Kit com 3 Munhequeiras Caneladas",
+    price: 124.70,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/runnin1-sm-porta-objetos.webp",
+      "/running/runnin2-sm-porta-objetos.webp",
+      "/running/runnin3-sm-porta-objetos.webp",
+    ],
+    lgImage: "/running/runnin-lg-porta-objetos.webp",
+  },
+  {
+    id: 26,
+    type: "running",
+    name: "manguito",
+    image: "/running/manguito.webp",
+    title: "Manguito",
+    price: 89.90,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/runnin1-sm-manguito.webp",
+      "/running/runnin2-sm-manguito.webp",
+      "/running/runnin3-sm-manguito.webp",
+    ],
+    lgImage: "/running/runnin-lg-manguito.webp",
+  },
+  {
+    id: 27,
+    type: "running",
+    name: "patch",
+    image: "/running/patch.webp",
+    title: "Patch Skyhill",
+    price: 25.00,
+    color: "Preto",
+    size: ["U"],
+    review: 5.0,
+    numbersReview: 1,
+    smImages: [
+      "/running/runnin1-sm-patch.webp",
+      "/running/runnin2-sm-patch.webp",
+      "/running/runnin3-sm-patch.webp",
+    ],
+    lgImage: "/running/runnin-lg-patch.webp",
   }
 ]

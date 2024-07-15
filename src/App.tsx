@@ -4,6 +4,7 @@ import NavBar from "./layouts/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductsList from "./pages/ProductsList";
 import {
+  acessorios,
   cintos,
   cordas,
   grips,
@@ -71,6 +72,16 @@ export default function App() {
           <Route
             path={`/cintos/${cinto.id}`}
             element={<ProductItem product={cinto} />}
+          />
+        ))}
+         <Route
+          path="/acessorios"
+          element={<ProductsList name={"ACESSORIOS"} product={acessorios} />}
+        />
+        {acessorios.map((acessorio) => (
+          <Route
+            path={`/acessorios/${acessorio.id}`}
+            element={<ProductItem product={acessorio} />}
           />
         ))}
         <Route
